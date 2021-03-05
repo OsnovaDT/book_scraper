@@ -50,4 +50,10 @@ class BookCrawlSpider(CrawlSpider):
             "//div[@class='buying-priceold-val']/span/text()"
         )
 
+        # Book publishing house
+        book_loader.add_xpath(
+            'publishing_house',
+            "//div[@class='publisher']/a/text()"
+        )
+
         return book_loader.load_item()
