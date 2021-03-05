@@ -1,11 +1,15 @@
-import scrapy
+"""Items for parsing"""
+
+from scrapy import Item, Field
 
 
-class Book(scrapy.Item):
-    book_url = scrapy.Field()
-    image_url = scrapy.Field()
-    title = scrapy.Field()
-    price = scrapy.Field()
-    authors = scrapy.Field()
-    series_of_books = scrapy.Field()
-    publishing_house = scrapy.Field()
+class Book(Item):
+    """Book item"""
+
+    book_url = Field()
+    image_url = Field()
+    title = Field()
+    price = Field()
+    authors = Field()
+    series_of_books = Field()
+    publishing_house = Field()

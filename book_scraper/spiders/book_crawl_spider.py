@@ -1,3 +1,5 @@
+"""Book crawl spider"""
+
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
@@ -6,6 +8,8 @@ from book_scraper.items import Book
 
 
 class BookCrawlSpider(CrawlSpider):
+    """Book crawl spider class"""
+
     name = 'book_crawl_spider'
     allowed_domains = ['www.labirint.ru']
 
@@ -14,12 +18,15 @@ class BookCrawlSpider(CrawlSpider):
 
     rules = (
         Rule(
-            LinkExtractor(allow=('/books/\d+',)),
+            # Get book with some number
+            LinkExtractor(allow=(r'/books/\d+',)),
             callback='parse_book'
         ),
     )
 
     def parse_book(self, response):
+        """Method for parsing book"""
+
         book_loader = BookLoader(
             item=Book(),
             response=response
