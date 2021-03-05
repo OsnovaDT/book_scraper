@@ -56,4 +56,10 @@ class BookCrawlSpider(CrawlSpider):
             "//div[@class='publisher']/a/text()"
         )
 
+        # Book series
+        book_loader.add_xpath(
+            'series_of_books',
+            "//div[@class='series']/a/text()"
+        )
+
         return book_loader.load_item()
