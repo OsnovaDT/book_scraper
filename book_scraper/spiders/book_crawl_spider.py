@@ -44,4 +44,10 @@ class BookCrawlSpider(CrawlSpider):
             "//div[@class='prodtitle']/h1/text()"
         )
 
+        # Book price
+        book_loader.add_xpath(
+            'price',
+            "//div[@class='buying-priceold-val']/span/text()"
+        )
+
         return book_loader.load_item()
