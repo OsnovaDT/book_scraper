@@ -38,4 +38,10 @@ class BookCrawlSpider(CrawlSpider):
             response.url
         )
 
+        # Book title
+        book_loader.add_xpath(
+            'title',
+            "//div[@class='prodtitle']/h1/text()"
+        )
+
         return book_loader.load_item()
