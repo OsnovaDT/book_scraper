@@ -3,7 +3,7 @@
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
-from book_scraper.product_loader import BookLoader
+from book_scraper.book_loader import BookLoader
 from book_scraper.items import Book
 
 
